@@ -1,0 +1,54 @@
+<div *ngIf="info.token; else loggedOut">
+    <h4 class="text-primary" style="color: #4b66c5"><b>Vos informations personnelles : </b></h4> <br>
+   <!-- 
+     <p>
+      <strong>Username:</strong> {{info.username}}<br/>
+      <strong>Roles:</strong> {{info.authorities}}<br />
+
+
+
+      <strong>Token:</strong> {{info.token}}.  
+    </p>    -->
+
+
+
+          <div class="container">
+            <div class="col-md-6" *ngIf="user" >
+
+                <h4 class="center-block" style="background-color: white; width: 250px; padding-top: 15px; padding-bottom: 15px; border: 3px solid rgb(115, 146, 187); text-align: center; background: withe;border-radius: 5px;">
+                    <p>Name : {{user.name}}<p>
+                  </h4>
+           
+                  <h4 class="center-block" style="background-color: white; width: 250px; padding-top: 15px; padding-bottom: 15px; border: 3px solid rgb(115, 146, 187); text-align: center; background: withe;border-radius: 5px;">
+                    <p>Username : {{user.username}}<p>
+                  </h4>
+             
+                
+                  <h4 class="center-block" style="background-color: white; width: 250px; padding-top: 15px; padding-bottom: 15px; border: 3px solid rgb(115, 146, 187); text-align: center; background: withe;border-radius: 5px;">
+                      <p>Crédit actuel: {{user.paypal}} €<p>
+                    </h4>
+
+                    <h4 class="center-block" style="background-color: white; width: 250px;  padding-top: 15px; padding-bottom: 15px; border: 3px solid rgb(115, 146, 187); text-align: center; background: withe;border-radius: 5px;">
+                      <p>Email: {{user.email}}<p>
+                    </h4>
+                
+                    <h4 class="center-block" style="background-color: white; width: 250px;  padding-top: 15px; padding-bottom: 15px; border: 3px solid white; text-align: center; background: withe;border-radius: 5px;">
+                        <button class=" btn btn-primary" (click)="logout()">Logout</button>
+                      </h4>
+
+                    <br>
+                </div>
+          </div>
+
+
+
+
+
+<br>
+<br>
+  <ng-template #loggedOut>
+    Please <a routerLink="/auth/login">login here</a>.
+  </ng-template>
+
+
+</div>

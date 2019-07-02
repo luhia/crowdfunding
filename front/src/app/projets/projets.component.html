@@ -1,0 +1,156 @@
+<div class="container">
+  <div class="row">
+ 
+      <div>
+        <br>
+          <h4 style="color: #4b66c5"><b>Création d'un nouveau projet</b></h4>
+          <br>
+            <form [formGroup] = "projetForm" (ngSubmit)="saveProjet()">
+    
+              <div class="form-group">
+                <label for="nomprojet">Nom</label>
+                <input formControlName="nomprojet" type="text" id="nomprojet" class="form-control"/>
+              </div>
+  
+              <div class="form-group">
+                <label for="description">Description  - max 500 caractères</label>
+                <input formControlName="description" type="text" id="description" class="form-control"/>
+              </div>
+  
+              <div class="form-group">
+                <label for="objectif">Objectif</label>
+                <input formControlName="objectif" type="text" id="objectif" class="form-control"/>
+              </div>
+   
+              <div class="form-group">
+                <label for="budget">Budget</label>
+                <input formControlName="budget" type="text" id="budget" class="form-control"/>
+              </div>
+  
+              <div class="form-group">
+                  <label for="date">Date de fin - aaaa-mm-jj</label>
+                  <input formControlName="date" type="text" id="date" class="form-control"/>
+              </div>
+  
+              <div class="form-group">
+                  <label for="image">Inserer ici l'url de l'image</label>
+                  <input formControlName="image" type="text" id="image" class="form-control"/>
+              </div>
+  
+
+  
+    
+              <div class="form-group">
+                <label for="categorie">Catégorie</label>
+                <select formControlName="categorie" id="categorie" class="form-control">
+                  <!--<option selected>Choix de votre catégorie</option> -->
+                  <option [ngValue] = "categorie" *ngFor="let categorie of categories">{{categorie.categorie}}</option>
+                </select>
+              </div>
+  
+              <button class="btn btn-primary">Save</button>
+    
+            </form>
+      </div>
+
+
+
+
+
+
+
+
+    <div class="col-md-8"> 
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+        <h4 style="color: #4b66c5">Propositions de projet</h4>
+  
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Objectif</th>
+                <th>Date</th>
+                <th>Categorie</th>
+                <th>Url de l'image</th>
+              </tr>
+            </thead>
+  
+            <tbody>
+              <tr *ngFor="let prop of propositions">
+                <td>{{prop.id}}</td>
+                <td>{{prop.nomproposition}}</td>
+                <td>{{prop.descriptionprojet}}</td>
+                <td>{{prop.objectifprojet}}</td>
+                <td>{{prop.dateproposee}}</td>
+                <td>{{prop.categorievoulue}}</td>
+                <td>{{prop.imageproposee}}</td>
+                <button (click)="deleteProposition(prop.id)" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
+              </tr>
+            </tbody>
+          </table>
+      </div> 
+
+<!--
+      <td>{{prop.dateproposee}}</td>
+      <td>{{prop.imageproposee}}</td>
+-->
+
+      <div class="col-md-8">         
+          <br>
+          <br>
+          <br>
+          <br> 
+        <h4 style="color: #4b66c5">Projets</h4>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Projet</th>
+                  <th>Description</th>
+                  <th>Objectif</th>
+                  <th>Budget</th>
+                  <th>Date</th>
+                  <th>Categorie</th>
+                  <th>Modification</th>
+                </tr>
+              </thead>
+    
+              <tbody>
+                <tr *ngFor="let proj of projets">
+                  <td>{{proj.id}}</td>
+                  <td>{{proj.nomprojet}}</td>
+                  <td>{{proj.description}}</td>
+                  <td>{{proj.objectif}}</td>
+                  <td>{{proj.budget}}</td>
+                  <td>{{proj.date}}</td>
+                  <td>{{proj.categorie.categorie}}</td>
+                  <td> 
+                    <a routerLink="/projets/{{proj.id}}" class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span></a>
+                    <button (click)="deleteProjet(proj.id)" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+        </div> 
+
+
+
+
+
+
+  </div> 
+</div>
+
+
+
+
+
+
+

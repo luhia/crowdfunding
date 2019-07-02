@@ -1,0 +1,82 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Finançons ensemble</a>
+    </div>
+
+    <ul class="nav navbar-nav" routerLinkActive="active">
+      <li class="nav-item"><a class="nav-link"   routerLink="home" ><span class="glyphicon glyphicon-home"></span> Home</a></li>
+
+
+      <li *ngIf="authority === 'pm'" class="nav-item">
+        <a class="nav-link" href="/propositions" >Proposer un projet!</a>
+      </li>
+      <li *ngIf="authority === 'user'" class="nav-item">
+          <a class="nav-link" href="/propositions" >Proposer un projet!</a>
+        </li>
+      <li *ngIf="authority === 'admin'" class="nav-item">
+        <a class="nav-link" href="/projets" >Projets</a>
+      </li>
+      <li *ngIf="authority === 'admin'" class="nav-item">
+        <a class="nav-link" href="/categories" >Categories</a>
+      </li>
+    </ul>
+
+   
+
+<ul class="nav navbar-nav navbar-right" >
+  
+
+    <li *ngIf="user" class="nav-item">
+        <p class="navbar-brand">Crédit : {{user.paypal}}</p>
+    </li>
+
+
+
+
+    <li *ngIf="authority === 'admin'" class="nav-item">
+        <a class="nav-link" href="/profile"><span class="glyphicon glyphicon-user"></span> Profile</a>
+    </li>
+
+    <li *ngIf="authority === 'pm'" class="nav-item">
+        <a class="nav-link" href="/profile"><span class="glyphicon glyphicon-user"></span> Profile</a>
+    </li>
+
+    <li *ngIf="authority === 'user'" class="nav-item">
+        <a class="nav-link" href="/profile"><span class="glyphicon glyphicon-user"></span> Profile</a>
+    </li>
+
+
+
+
+    
+      <li *ngIf="!authority" class="nav-item">
+        <a class="nav-link" routerLink="auth/login"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+      </li>
+
+      <li *ngIf="authority === 'admin'"  class="nav-item">
+        <a class="nav-link" (click)="logout()"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+      </li>
+      <li *ngIf="authority === 'pm'"  class="nav-item">
+          <a class="nav-link" (click)="logout()"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+      </li>
+      <li *ngIf="authority === 'user'"  class="nav-item">
+          <a class="nav-link" (click)="logout()"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+      </li>
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+
+
+    

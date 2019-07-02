@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8"> 
+        <br>
+      <h4>Categories</h4>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nom de la categorie</th>
+              <th>Modification</th>
+              <th>Retour</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let cate of categories">
+              <td>{{cate.id}}</td>
+              <td>{{cate.categorie}}</td>
+              <td>{{cate.retour}}</td>
+              <td> 
+                <a routerLink="/categories/{{cate.id}}" class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span></a>
+                <button (click)="deleteCategorie(cate.id)" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+
+    <div class="col-md-4">
+      <br>
+        <h4>Nouvelle catégorie</h4>
+          <form [formGroup] = "categorieForm" (ngSubmit)="saveCategorie()">
+  
+            <div class="form-group">
+              <label for="categorie">Nom de la categorie</label>
+              <input formControlName="categorie" type="text" id="categorie" class="form-control"/>
+            </div>
+
+            <div class="form-group">
+                <label for="retour">Retour après le crowfunding</label>
+                <input formControlName="retour" type="text" id="retour" class="form-control"/>
+            </div>
+  
+
+            <button class="btn btn-primary">Save</button>
+  
+          </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-8"> 
+        <h4>Propositions de projet</h4>
+  
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Objectif</th>
+                <th>Categorie</th>
+                <th>Modification</th>
+              </tr>
+            </thead>
+  
+            <tbody>
+              <tr *ngFor="let prop of propositions">
+                <td>{{prop.nomproposition}}</td>
+                <td>{{prop.descriptionprojet}}</td>
+                <td>{{prop.objectifprojet}}</td>
+                <td>{{prop.categorievoulue}}</td>
+                <td> 
+                    <a routerLink="/propositions/{{prop.id}}" class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span></a>
+                  <button (click)="deleteProposition(prop.id)" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
+                </td>
+              </tr>
+            </tbody> 
+          </table>
+      </div> 
+  
+      <div class="col-md-4">
+          <h4>Proposez votre projet!</h4>
+            <form [formGroup] = "propositionForm" (ngSubmit)="saveProposition()">
+    
+              <div class="form-group">
+                <label for="nomproposition">Nom du projet</label><br>
+                <input formControlName="nomproposition" type="text" id="nomproposition" class="nomproposition"/>
+              </div>
+  
+              <div class="form-group">
+                  <label for="descriptionprojet">Description de votre projet</label><br>
+                  <input formControlName="descriptionprojet" type="text" id="descriptionprojet" class="descriptionprojet"/>
+              </div>
+
+              <div class="form-group">
+                  <label for="objectifprojet">Quel est votre objectif ?</label><br>
+                  <input formControlName="objectifprojet" type="text" id="objectifprojet" class="objectifprojet"/>
+              </div>   
+
+              <div class="form-group">
+                  <label for="dateproposee">Quel est la date limite ? | aaaa-mm-jj</label><br>
+                  <input formControlName="dateproposee" type="text" id="dateproposee" class="dateproposee"/>
+              </div> 
+
+              <div class="form-group">
+                  <label for="imageproposee">URL de l'image</label><br>
+                  <input formControlName="imageproposee" type="text" id="imageproposee" class="imageproposee"/>
+              </div>   
+  
+              <div class="form-group">
+                  <label for="categorievoulue">Categorie de projet</label><br>
+                  <input formControlName="categorievoulue" type="text" id="categorievoulue" class="categorievoulue"/>
+              </div>    
+  
+              <button class="btn btn-primary">Soumettre votre projet</button>
+    
+            </form>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,65 @@
+
+
+  
+<div class="container" *ngIf="projet" >
+  <div class="row">
+      <h2 class="text-center" style="color: green"><b>{{projet.nomprojet}}</b></h2>
+
+      <br>
+      <br> 
+      <br>
+
+    <img src="{{projet.image}}" alt="image" class="card col-md-8" style="width: 600px; border:solid 1px black" >
+
+
+      <div  class="card col-md-4" ><b>
+        <br>
+        <p style="color: #4b66c5">Objectif à atteindre: {{projet.objectif}} €</p>
+        <br>
+        <p style="color: #4b66c5">Budget actuel: {{projet.budget}} €</p>
+        <br>
+        <p style="color: #4b66c5">Offre : {{projet.categorie.retour}}</p>
+        <br>
+        <p style="color: #4b66c5">Date de fin : {{projet.date}}</p>
+        <br>
+        <br>
+        <p style="color: #4b66c5">Description : </p>
+        <p>{{projet.description}}</p>
+        <br>
+
+       
+      </b></div>
+
+    </div> 
+</div>
+<button type="button" routerLink="/home" class="btn btn-lg btn-block btn-link" style="width:50px"><span class="glyphicon glyphicon-arrow-left"></span><b> Retour</b></button>
+<br>
+
+
+
+
+  <form class="center-block">
+    <div class="card col-md-5">
+
+    </div>
+      <div  class="card col-md-6" >
+        <p style="color: #4b66c5"><b><h4>Quel montant voulez vous verser ?  : </h4></b> <input class="mr-4" style="width: 125px" type="number" #c/><br><br>
+       <button (click)="contribution(c.value)" routerLink="/home" class="btn btn-success "><h4>Participer !</h4></button></p>
+        
+      </div>
+    </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,37 @@
+    <h2 class="text-center" style="color: green"><b>{{projet.nomprojet}}</b></h2>
+
+  <br>
+  <br>
+  <br>
+
+    
+  <div class="container" >
+    <div class="row">
+
+      <img src="{{projet.image}}" alt="image" class="card col-md-8" style="width: 600px; border:solid 1px black" >
+
+
+        <div  class="card col-md-4"><b>
+            <br>
+          <p style="color: #4b66c5">Objectif à atteindre: {{projet.objectif}} €</p>
+          <br>
+          <p style="color: #4b66c5">Offre : {{projet.categorie.retour}}</p>
+          <br>
+          <p style="color: #4b66c5">Date de fin : {{projet.date}}</p>
+          <br>
+          <br>
+
+          
+          <p style="color: #4b66c5">Description : </p>
+          <p>{{projet.description}}</p>
+          <br>
+          <br>
+          <button type="button" routerLink="/home" class="btn btn-lg btn-block btn-info center-block" style="width:150px">Retour</button>
+
+        
+        </b></div>
+
+      </div> 
+  </div>
+
+  
